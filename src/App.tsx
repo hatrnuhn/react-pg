@@ -2,9 +2,13 @@ import { useState } from 'react';
 import './App.css'
 import SearchInput from './components/SearchInput'
 import Catalog from './components/Catalog';
+import AddProduct from './components/AddProduct';
+import ColorPicker from './components/ColorPicker';
+import InDecrement from './components/InDecrement';
+import FavoriteCar from './components/FavoriteCar';
 
 function App() {
-  const products = [
+  const data = [
     {name: 'Reebok Nano X3 Adventure'},
     {name: 'Reebok Nano X2 Adventure'}, 
     {name: 'Hoka Speedgoat 5'},
@@ -14,11 +18,18 @@ function App() {
   ]
 
   const [searchInputValue, setSearchInputValue] = useState('');
+  const [products, setNewProduct] = useState(data);
+  const [bgColor, setBgColor] = useState('#ffffff')
 
   return (
     <div>
       <SearchInput setSearchInputValue={setSearchInputValue}/>
-      <Catalog products={products} searchFor={searchInputValue} />
+      <br/>
+      <AddProduct setNewProduct={setNewProduct}/>   
+      <Catalog bgColor={bgColor} products={products} searchFor={searchInputValue}/>
+      <ColorPicker setBgColor={setBgColor}/>
+      <InDecrement/>
+      <FavoriteCar/>
     </div>
   )
 }

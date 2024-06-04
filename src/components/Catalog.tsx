@@ -8,11 +8,12 @@ import {
   
 
 interface CatalogProps {
+    bgColor: string
     products: {name:string}[],
     searchFor: string
 }
 
-const Catalog: React.FC<CatalogProps> = ({products, searchFor}) => {
+const Catalog: React.FC<CatalogProps> = ({bgColor, products, searchFor}) => {
     return (
         <Box sx={{ width: '100%' }}>
             <Grid container rowSpacing={4} columnSpacing={{ xs: 3}}>
@@ -23,7 +24,7 @@ const Catalog: React.FC<CatalogProps> = ({products, searchFor}) => {
                     .map((p, i) => {
                         return (
                             <Grid item xs={4} key={i}>
-                                <Card variant='outlined'>
+                                <Card variant='outlined' sx={{backgroundColor: bgColor}}>
                                     <CardContent>
                                         {p.name}
                                     </CardContent>

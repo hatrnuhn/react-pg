@@ -11,7 +11,10 @@ const SearchInput: React.FC<SearchInputProps> = ({ setSearchInputValue }) => {
     }
 
     return (
-        <TextField
+        <TextField 
+            id="outlined-basic" 
+            label="Search" 
+            variant="outlined"
             placeholder="I'm looking for"
             onChange={handleSearchInputChange}
         />
