@@ -1,10 +1,10 @@
 import './App.css'
-import ToDoList from './components/ToDoList';
+import DigitalClock from './components/DigitalClock';
 
 function App() {
   return (
     <div>
-      <ToDoList />
+      <DigitalClock />
     </div>
   )
 }
