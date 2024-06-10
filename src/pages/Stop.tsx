@@ -1,10 +1,11 @@
 import { Button, Stack, TextField } from "@mui/material"
 import axios from "axios"
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+import { AppContext } from "../contexts"
 
 const Stop = () => {
     const Token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoxLCJ1c2VySWQiOjIzLCJlbWFpbCI6ImFkbWluMUBjaDYuY29tIiwidXNlcm5hbWUiOiJhZG1pbjEiLCJpYXQiOjE3MTc1OTcxNDEsImV4cCI6MTcyMDE4OTE0MX0.KoLJ-g7DnnWBsdWHm3p1Yz00S2IUTO5Z8VLyQ6b1KqM'
-    const [carId, setCarId] = useState('')
+    const context = useContext(AppContext)
     const [input, setInput] = useState('')
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,8 +13,9 @@ const Stop = () => {
     }
 
     const handleClick = () => {
-        setCarId(input)
-        axios.delete(`http://localhost:3000/api/cars/${carId}`, {
+        context?.carId.setCarId(input)
+
+        axios.delete(`http://localhost:3000/api/cars/${context?.carId.carId}`, {
             headers: {
                 Authorization: `Bearer ${Token}`
             }

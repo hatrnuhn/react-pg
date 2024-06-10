@@ -1,5 +1,6 @@
 import { Button, Stack, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import Upload from "../components/Upload"
 
 const Home = () => {
     const navigate = useNavigate()
@@ -26,6 +27,7 @@ const Home = () => {
                 <Button variant='contained' onClick={() => handleNavigate('/update-car')}>Update a car</Button>
                 <Button variant='contained' onClick={() => handleNavigate('/lend/stop')}>Stop lending</Button>
             </Stack>
+            <Upload />
         </Stack>
     )
 }
